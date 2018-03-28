@@ -1,0 +1,15 @@
+# test cases
+# sorter(['Algebra', 'History', 'Geometry', 'English']) --> ['Algebra', 'English', 'Geometry', 'History']
+# sorter(['Algebra', 'history', 'Geometry', 'english']) --> ['Algebra', 'english', 'Geometry', 'history']
+# sorter(['Alg#bra', '$istory', 'Geom^try', '**english']) --> ['$istory', '**english', 'Alg#bra', 'Geom^try']
+
+
+def sorter(textbooks):
+    for i in range(1, len(textbooks)):
+        current = textbooks[i]
+        j = i-1
+        while j>=0 and ord(textbooks[j][0].lower()) > ord(current[0].lower()):
+            textbooks[j+1] = textbooks[j]
+            j = j - 1
+            textbooks[j+1] = current
+    return textbooks
